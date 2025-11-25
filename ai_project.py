@@ -26,14 +26,14 @@ train_gen = ImageDataGenerator(rescale=1./255)
 val_gen   = ImageDataGenerator(rescale=1./255)
 
 train_data = train_gen.flow_from_directory(
-   "bebarsmohamad-create/Convolutional-Neural-VGG/test",  
+   "bebarsmohamad-create/Convolutional-Neural-VGG/test",  # dataset path 
     target_size=(224, 224),
     batch_size=32,
     class_mode="categorical"
 )
 
 val_data = val_gen.flow_from_directory(
-    "/content/drive/MyDrive/dataset/val", 
+    "/content/drive/MyDrive/dataset/val", # test path 
     target_size=(224, 224),
     batch_size=32,
     class_mode="categorical"
@@ -45,7 +45,7 @@ model.fit(
     epochs=3
 )
 
-img = image.load_img("/content/drive/MyDrive/dataset/train/01_palm/frame_00_01_0002.png", target_size=(224, 224)) 
+img = image.load_img("/content/drive/MyDrive/dataset/train/01_palm/frame_00_01_0002.png", target_size=(224, 224)) # put any iamge 
 img = image.img_to_array(img)
 img = img / 255.0
 img = np.expand_dims(img, axis=0)
